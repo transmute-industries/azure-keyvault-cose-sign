@@ -1,0 +1,12 @@
+name: CI
+on: [push]
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install
+      run: npm ci
+    - name: Coverage
+      run: npm run coverage
