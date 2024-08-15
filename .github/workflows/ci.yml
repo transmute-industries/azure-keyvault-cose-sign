@@ -1,7 +1,7 @@
 name: CI
 on: [push]
 jobs:
-  bump:
+  coverage:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -10,3 +10,8 @@ jobs:
       run: npm ci
     - name: Coverage
       run: npm run coverage
+      env:
+        AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+        AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+        AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+        AZURE_KEY_ID: ${{ secrets.AZURE_KEY_ID }}
